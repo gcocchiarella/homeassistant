@@ -1,0 +1,56 @@
+kiosk_mode:
+  user_settings:
+    - users:
+        - tablet
+      hide_sidebar: true
+      
+button_card_templates: !include button_card_templates.yaml
+views:
+  - title: HOME
+    path: home
+    panel: true
+    cards:
+      - type: 'custom:mod-card'
+        card:
+          type: vertical-stack
+          cards:
+            - !include demo/home/header.yaml
+            - type: 'custom:button-card'
+              template: row_space_10
+            - type: horizontal-stack
+              cards:
+                - !include demo/home/body_col_1.yaml
+                - !include demo/home/body_col_2.yaml
+                - !include demo/home/body_col_3.yaml
+            - type: 'custom:button-card'
+              template: empty_card
+              styles:
+                card:
+                  - height: 10px
+            - !include demo/home/footer.yaml
+  - title: LUCI
+    path: luci
+    panel: true
+    cards:
+      - type: 'custom:mod-card'
+        style:
+          hui-vertical-stack-card$: |
+            #root {
+              max-width: 90%;
+            }
+        card:
+          type: vertical-stack
+          cards:          
+            - !include demo/luci/header.yaml
+            - type: 'custom:button-card'
+              template: row_space_10
+            - type: horizontal-stack
+              cards:
+                - !include demo/luci/body_col_1.yaml
+                - !include demo/luci/body_col_2.yaml
+            - type: 'custom:button-card'
+              template: empty_card
+              styles:
+                card:
+                  - height: 10px
+            - !include demo/luci/footer.yaml

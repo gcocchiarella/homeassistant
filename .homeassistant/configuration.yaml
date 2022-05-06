@@ -1,0 +1,30 @@
+
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+frontend:
+  extra_module_url:
+    - /local/community/lovelace-card-mod/card-mod.js
+
+lovelace:
+  mode: yaml
+  resources:
+    - url: /local/community/button-card/button-card.js
+      type: module
+    - url: /local/community/kiosk-mode/kiosk-mode.js
+      type: module
+  dashboards:
+    lovelace-ui:
+      mode: yaml
+      title: Tablet
+      icon: mdi:tablet
+      show_in_sidebar: true
+      filename: ui-lovelace.yaml
