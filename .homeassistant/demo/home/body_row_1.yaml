@@ -1,0 +1,45 @@
+type: horizontal-stack
+cards:
+  - type: 'custom:button-card'
+    entity: light.lampadina
+    icon: 'mdi:ceiling-light'
+    name: Luci
+    styles:
+      card:
+        - height: 150px
+        - width: 150px
+        - border-radius: 20px
+        - background-color: 'rgba(255, 255, 255, 0.3)'
+        - box-shadow: none
+  - type: 'custom:button-card'
+    entity: 
+    name: 2
+    styles:
+      card:
+        - height: 150px
+        - width: 150px
+        - border-radius: 20px
+        - background-color: 'rgba(255, 255, 255, 0.3)'
+        - box-shadow: none
+  - type: 'custom:button-card'
+    entity: 
+    color: auto
+    name: 3
+    styles:
+      card:
+        - height: 150px
+        - width: 150px
+        - border-radius: 20px
+        - background-color: 'rgba(255, 255, 255, 0.3)'
+        - box-shadow: none
+  - type: 'custom:button-card'
+    entity: 
+    color: auto
+    name: 4
+    styles:
+      card:
+        - height: 150px
+        - width: 150px
+        - border-radius: 20px
+        - background-color: 'rgba(255, 255, 255, 0.3)'
+        - box-shadow: none

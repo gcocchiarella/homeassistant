@@ -3,54 +3,64 @@ kiosk_mode:
     - users:
         - tablet
       hide_sidebar: true
+      hide_header: true
+      hide_menu_button: true
+      hide_overflow: true
+      kiosk: true
       
 button_card_templates: !include button_card_templates.yaml
 views:
   - title: HOME
     path: home
     panel: true
+    background: >-
+      center / cover no-repeat fixed
+      url('/local/images/background.jpg')
     cards:
-      - type: 'custom:mod-card'
-        card:
-          type: vertical-stack
-          cards:
-            - !include demo/home/header.yaml
-            - type: 'custom:button-card'
-              template: row_space_10
-            - type: horizontal-stack
-              cards:
-                - !include demo/home/body_col_1.yaml
-                - !include demo/home/body_col_2.yaml
-                - !include demo/home/body_col_3.yaml
-            - type: 'custom:button-card'
-              template: empty_card
-              styles:
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: 30% 70%
+          grid-template-rows: 100%
+          grid-template-areas: |
+            "sidebar body"
+          height: 100%
+          margin: 0px
+          mediaquery:
+            "(max-width: 600px)":
+            grid-template-columns: 100%
+            grid-template-areas: |
+              "sidebar"
+              "body"
+            "(max-width: 800px)":
+              grid-template-columns: 20% 70%
+              grid-template-areas: |
+                "sidebar body"
+        cards:
+          - type: custom:mod-card
+            style: |
+                ha-card {
+                    background: rgba(0,0,0,0.3);
+                    height: 100%;
+                }
+            view_layout:
+              grid-area: sidebar
+            card:
+              !include demo/home/sidebar.yaml
+          - type: vertical-stack
+            view_layout:
+              grid-area: body
+            cards:
+              - !include demo/home/header.yaml
+              - type: 'custom:mod-card'
+                style:
+                   hui-vertical-stack-card$: |
+                    #root {
+                      margin: 10px !important;
+                    }
                 card:
-                  - height: 10px
-            - !include demo/home/footer.yaml
-  - title: LUCI
-    path: luci
-    panel: true
-    cards:
-      - type: 'custom:mod-card'
-        style:
-          hui-vertical-stack-card$: |
-            #root {
-              max-width: 90%;
-            }
-        card:
-          type: vertical-stack
-          cards:          
-            - !include demo/luci/header.yaml
-            - type: 'custom:button-card'
-              template: row_space_10
-            - type: horizontal-stack
-              cards:
-                - !include demo/luci/body_col_1.yaml
-                - !include demo/luci/body_col_2.yaml
-            - type: 'custom:button-card'
-              template: empty_card
-              styles:
-                card:
-                  - height: 10px
-            - !include demo/luci/footer.yaml
+                  type: vertical-stack
+                  cards:
+                    - !include demo/home/body_nav.yaml
+                    - !include demo/home/body_row_1.yaml
+                    - !include demo/home/body_row_2.yaml

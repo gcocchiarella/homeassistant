@@ -1,2 +1,9 @@
 type: 'custom:button-card'
-template: empty_card
+entity: 
+name: 
+template:
+styles:
+  card:
+    - background-color: 'rgb(66, 195, 175)'
+    - border-radius: 0px
+    - box-shadow: none
