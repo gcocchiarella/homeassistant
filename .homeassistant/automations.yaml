@@ -1,1 +1,17 @@
-[]
+- id: '1652257707804'
+  alias: Accensione luci al tramonto
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -00:30
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      color_temp: 344
+    target:
+      device_id: 69bf62aa5d5ad27d181b377312bab6b4
+      area_id: soggiorno
+      entity_id: light.lampadina
+  mode: single

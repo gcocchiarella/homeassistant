@@ -10,9 +10,18 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
+sensor:
+  # Minimal configuration of the standard time and date sensor
+  - platform: time_date
+    display_options:
+      - 'date'
+      - 'time'
+
 frontend:
   extra_module_url:
     - /local/community/lovelace-card-mod/card-mod.js
+
+
 
 lovelace:
   mode: yaml
@@ -23,7 +32,7 @@ lovelace:
       type: module
     - url: /local/community/vertical-stack-in-card/vertical-stack-in-card.js
       type: module
-    - url: /local/community/lovelace-layout-card/layout-card.js
+    - url: /local/community/sidebar-card/sidebar-card.js
       type: module
   dashboards:
     lovelace-ui:

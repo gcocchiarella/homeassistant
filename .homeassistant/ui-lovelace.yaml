@@ -7,51 +7,51 @@ kiosk_mode:
       hide_menu_button: true
       hide_overflow: true
       kiosk: true
-      
+
 button_card_templates: !include button_card_templates.yaml
+
+sidebar:
+  style: |
+    :host {
+        --sidebar-background: #1a1b1e;
+        --sidebar-text-color: #FFF;
+        --face-color: #a9a9a7;
+        --face-border-color: #000;
+      }
+  digitalClock: true
+  date: true
+  dateFormat: dddd, DD MMMM YYYY
+  width:
+    mobile: 0
+    tablet: 30
+    desktop: 25
+  sidebarMenu:
+    - action: navigate
+      navigation_path: "/lovelace/home"
+      name: "Home"
+      active: true
+    - action: navigate
+      navigation_path: "/lovelace/lampen"
+      name: "Letto Singolo"
+    - action: navigate
+      navigation_path: "/lovelace/music"
+      name: "Letto Doppio"
+    - action: navigate
+      navigation_path: "/lovelace/4"
+      name: "Bagno"
+
 views:
   - title: HOME
     path: home
     panel: true
     background: >-
       center / cover no-repeat fixed
-      url('/local/images/background.jpg')
+      url('/local/images/background1.jpg')
     cards:
-      - type: custom:layout-card
-        layout_type: custom:grid-layout
-        layout:
-          grid-template-columns: 30% 70%
-          grid-template-rows: 100%
-          grid-template-areas: |
-            "sidebar body"
-          height: 100%
-          margin: 0px
-          mediaquery:
-            "(max-width: 600px)":
-            grid-template-columns: 100%
-            grid-template-areas: |
-              "sidebar"
-              "body"
-            "(max-width: 800px)":
-              grid-template-columns: 20% 70%
-              grid-template-areas: |
-                "sidebar body"
+      - type: horizontal-stack
         cards:
-          - type: custom:mod-card
-            style: |
-                ha-card {
-                    background: rgba(0,0,0,0.3);
-                    height: 100%;
-                }
-            view_layout:
-              grid-area: sidebar
-            card:
-              !include demo/home/sidebar.yaml
           - type: vertical-stack
-            view_layout:
-              grid-area: body
             cards:
-              - !include demo/home/header.yaml
               - type: 'custom:mod-card'
                 style:
                    hui-vertical-stack-card$: |
@@ -61,6 +61,5 @@ views:
                 card:
                   type: vertical-stack
                   cards:
-                    - !include demo/home/body_nav.yaml
                     - !include demo/home/body_row_1.yaml
                     - !include demo/home/body_row_2.yaml

@@ -9,8 +9,7 @@ cards:
         - height: 150px
         - width: 150px
         - border-radius: 20px
-        - background-color: 'rgba(255, 255, 255, 0.3)'
-        - box-shadow: none
+        - background-color: 'rgba(255, 255, 255, 0.2)'
   - type: 'custom:button-card'
     entity: 
     name: 2
@@ -19,8 +18,7 @@ cards:
         - height: 150px
         - width: 150px
         - border-radius: 20px
-        - background-color: 'rgba(255, 255, 255, 0.3)'
-        - box-shadow: none
+        - background-color: 'rgba(255, 255, 255, 0.2)'
   - type: 'custom:button-card'
     entity: 
     color: auto
@@ -30,8 +28,7 @@ cards:
         - height: 150px
         - width: 150px
         - border-radius: 20px
-        - background-color: 'rgba(255, 255, 255, 0.3)'
-        - box-shadow: none
+        - background-color: 'rgba(255, 255, 255, 0.2)'
   - type: 'custom:button-card'
     entity: 
     color: auto
@@ -41,5 +38,4 @@ cards:
         - height: 150px
         - width: 150px
         - border-radius: 20px
-        - background-color: 'rgba(255, 255, 255, 0.3)'
-        - box-shadow: none
+        - background-color: 'rgba(255, 255, 255, 0.2)'
